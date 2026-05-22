@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Conférence de Pentecôte 2026 — Inscription</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --green: #4caf50; --green-dark: #388e3c; --green-light: #e8f5e9; --green-xlight: #f1f8f1;
+    --yellow: #fdd835; --yellow-dark: #f9a825;
+    --text: #1a2e1a; --text-muted: #5a7060; --border: #c8e6c9; --white: #ffffff;
+    --radius: 12px; --radius-sm: 8px;
+    --shadow: 0 2px 20px rgba(76,175,80,0.10);
+  }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'DM Sans', sans-serif; background: var(--green-xlight); color: var(--text); min-height: 100vh; line-height: 1.6; }
+
+  /* HERO */
+  .hero { background: var(--green); position: relative; overflow: hidden; padding: 3rem 1.5rem 2.5rem; text-align: center; }
+  .hero::before { content:''; position:absolute; top:-60px; right:-60px; width:260px; height:260px; border-radius:50%; background:rgba(253,216,53,0.18); pointer-events:none; }
+  .hero::after { content:''; position:absolute; bottom:-80px; left:-40px; width:200px; height:200px; border-radius:50%; background:rgba(255,255,255,0.08); pointer-events:none; }
+  .hero-badge { display:inline-block; background:var(--yellow); color:var(--text); font-size:11px; font-weight:600; letter-spacing:2px; text-transform:uppercase; padding:5px 16px; border-radius:20px; margin-bottom:1rem; }
+  .hero h1 { font-family:'Cormorant Garamond',serif; font-size:clamp(2rem,5vw,3.2rem); font-weight:700; color:#fff; line-height:1.15; margin-bottom:1.2rem; }
+  .hero h1 span { color:var(--yellow); }
+  .hero-meta { display:flex; flex-wrap:wrap; justify-content:center; gap:0.8rem 1.5rem; margin-bottom:0.5rem; }
+  .hero-meta-item { display:flex; align-items:center; gap:6px; color:rgba(255,255,255,0.92); font-size:14px; }
+
+  /* MAIN */
+  .main-wrap { max-width: 680px; margin: 0 auto; padding: 2rem 1rem 3rem; }
+
+  /* CARD */
+  .card { background:var(--white); border-radius:var(--radius); border:1px solid var(--border); box-shadow:var(--shadow); padding:2rem; }
+  .card-title { font-family:'Cormorant Garamond',serif; font-size:1.5rem; font-weight:600; color:var(--green-dark); margin-bottom:1.5rem; padding-bottom:0.8rem; border-bottom:2px solid var(--yellow); display:flex; align-items:center; gap:8px; }
+
+  /* FORM */
+  .form-grid { display:grid; grid-template-columns:1fr 1fr; gap:1.2rem; }
+  .form-group { display:flex; flex-direction:column; gap:5px; }
+  label { font-size:13px; font-weight:500; color:var(--text-muted); letter-spacing:0.3px; }
+  label span.req { color:var(--green); margin-left:2px; }
+  input, select { width:100%; padding:10px 14px; border:1.5px solid var(--border); border-radius:var(--radius-sm); font-family:'DM Sans',sans-serif; font-size:14px; color:var(--text); background:var(--white); outline:none; transition:border-color 0.2s,box-shadow 0.2s; -webkit-appearance:none; appearance:none; }
+  input:focus, select:focus { border-color:var(--green); box-shadow:0 0 0 3px rgba(76,175,80,0.12); }
+  input[type="date"]::-webkit-calendar-picker-indicator { cursor:pointer; opacity:0.7; }
+  .radio-group { display:flex; gap:1rem; margin-top:4px; }
+  .radio-item { display:flex; align-items:center; gap:8px; cursor:pointer; padding:9px 18px; border:1.5px solid var(--border); border-radius:var(--radius-sm); transition:all 0.2s; flex:1; justify-content:center; font-size:14px; }
+  .radio-item:has(input:checked) { border-color:var(--green); background:var(--green-light); color:var(--green-dark); font-weight:500; }
+  .radio-item input[type="radio"] { display:none; }
+
+  .btn-primary { width:100%; padding:13px 20px; border:none; border-radius:var(--radius-sm); background:var(--green); color:#fff; font-family:'DM Sans',sans-serif; font-size:15px; font-weight:600; cursor:pointer; transition:all 0.2s; display:flex; align-items:center; justify-content:center; gap:8px; margin-top:1.5rem; }
+  .btn-primary:hover { background:var(--green-dark); transform:translateY(-1px); box-shadow:0 4px 16px rgba(76,175,80,0.3); }
+  .btn-primary:active { transform:translateY(0); }
+
+  .alert { padding:12px 16px; border-radius:var(--radius-sm); font-size:13.5px; margin-top:1rem; display:none; }
+  .alert-success { background:var(--green-light); color:var(--green-dark); border:1px solid #a5d6a7; }
+  .alert-error { background:#fdecea; color:#b71c1c; border:1px solid #ffcdd2; }
+
+  /* FOOTER discret avec lien admin caché */
+  .page-footer { text-align:center; padding:2rem 1rem 1.5rem; }
+  .admin-link {
+    display: inline-flex; align-items: center; gap: 6px;
+    color: var(--text-muted); font-size: 12px; text-decoration: none;
+    padding: 6px 14px; border-radius: 20px;
+    border: 1px solid transparent;
+    transition: all 0.2s; opacity: 0.45;
+  }
+  .admin-link:hover { opacity: 1; border-color: var(--border); background: var(--white); color: var(--green-dark); }
+
+  @media (max-width:560px) { .form-grid { grid-template-columns:1fr; } .card { padding:1.3rem; } .hero { padding:2rem 1rem 1.8rem; } }
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <h1>Conférence de<br><span>Pentecôte 2026</span></h1>
+  <div class="hero-meta">
+    <div class="hero-meta-item">
+      <svg width="15" height="15" fill="none" viewBox="0 0 24 24" stroke="rgba(255,255,255,0.9)" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="16" y1="2" x2="16" y2="6"/></svg>
+      Lundi 25 mai 2026 — 08h à 16h
+    </div>
+    <div class="hero-meta-item">
+      <svg width="15" height="15" fill="none" viewBox="0 0 24 24" stroke="rgba(255,255,255,0.9)" stroke-width="2"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>
+      Église CMA Abobo Anonkoua 3
+    </div>
+  </div>
+</div>
+
+<div class="main-wrap">
+  <div class="card">
+    <div class="card-title">
+      <svg width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M16 21v-2a4 4 0 00-4-4H6a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg>
+      Formulaire d'inscription
+    </div>
+
+    <form id="inscriptionForm" onsubmit="handleSubmit(event)" novalidate>
+      <div class="form-grid">
+        <div class="form-group">
+          <label>Nom <span class="req">*</span></label>
+          <input type="text" id="nom" placeholder="Votre nom de famille" required>
+        </div>
+        <div class="form-group">
+          <label>Prénoms <span class="req">*</span></label>
+          <input type="text" id="prenoms" placeholder="Vos prénoms" required>
+        </div>
+        <div class="form-group">
+          <label>Date de naissance <span class="req">*</span></label>
+          <input type="date" id="ddn" required>
+        </div>
+        <div class="form-group">
+          <label>Genre <span class="req">*</span></label>
+          <div class="radio-group">
+            <label class="radio-item"><input type="radio" name="genre" value="Masculin" required> ♂ Masculin</label>
+            <label class="radio-item"><input type="radio" name="genre" value="Féminin"> ♀ Féminin</label>
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Classe <span class="req">*</span></label>
+          <select id="classe" required>
+            <option value="">— Sélectionner —</option>
+            <option>6ème</option>
+            <option>5ème</option>
+            <option>4ème</option>
+            <option>3ème</option>
+            <option>2nde</option>
+            <option>1ère</option>
+            <option>Terminale</option>
+            <option>Licence 1</option>
+            <option>Licence 2</option>
+            <option>Licence 3</option>
+            <option>Master 1</option>
+            <option>Master 2</option>
+            <option>Autre</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Classe ED <span class="req">*</span></label>
+          <select id="classeED" required>
+            <option value=""> Sélectionner </option>
+            <option>A 3</option>
+            <option>A 4</option>
+            <option>A 5</option>
+            <option>A 6</option>
+            <option>A 7</option>
+          </select>
+        </div>
+      </div>
+
+      <button type="submit" class="btn-primary">
+        <svg width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+        Valider mon inscription
+      </button>
+
+      <div id="alertSuccess" class="alert alert-success">✅ Inscription enregistrée avec succès ! Nous vous attendons le 25 mai.</div>
+      <div id="alertError" class="alert alert-error">⚠️ Veuillez remplir tous les champs obligatoires.</div>
+    </form>
+  </div>
+</div>
+
+<!-- Lien admin discret dans le footer, invisible pour les participants -->
+<div class="page-footer">
+  <a href="admin2.html" class="admin-link" title="Espace administrateur">
+    <svg width="13" height="13" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg>
+    Administration
+  </a>
+</div>
+
+<script>
+const DB_KEY = 'conf_pentecote_2026';
+function getDB() { try { return JSON.parse(localStorage.getItem(DB_KEY)) || []; } catch { return []; } }
+function saveDB(data) { localStorage.setItem(DB_KEY, JSON.stringify(data)); }
+
+function handleSubmit(e) {
+  e.preventDefault();
+  const nom = document.getElementById('nom').value.trim();
+  const prenoms = document.getElementById('prenoms').value.trim();
+  const ddn = document.getElementById('ddn').value;
+  const genre = document.querySelector('input[name="genre"]:checked')?.value;
+  const classe = document.getElementById('classe').value;
+  const classeED = document.getElementById('classeED').value;
+  const ok = nom && prenoms && ddn && genre && classe && classeED;
+
+  document.getElementById('alertSuccess').style.display = 'none';
+  document.getElementById('alertError').style.display = 'none';
+  if (!ok) { document.getElementById('alertError').style.display = 'block'; return; }
+
+  const db = getDB();
+  db.push({ id: Date.now(), nom, prenoms, ddn, genre, classe, classeED, inscritLe: new Date().toLocaleDateString('fr-FR') });
+  saveDB(db);
+
+  document.getElementById('inscriptionForm').reset();
+  document.getElementById('alertSuccess').style.display = 'block';
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+document.getElementById('ddn').setAttribute('max', new Date().toISOString().split('T')[0]);
+</script>
+</body>
+</html>
